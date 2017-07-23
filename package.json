@@ -1,0 +1,32 @@
+{
+  "name": "todo-anpx",
+  "version": "1.0.0",
+  "description": "todo",
+  "main": "server.js",
+  "scripts": {
+    "test": "console.log('OK');"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuananpham93/todo-anpx.git"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "anpx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuananpham93/todo-anpx/issues"
+  },
+  "homepage": "https://github.com/xuananpham93/todo-anpx#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "express3-handlebars": "^0.5.2",
+    "handlebars": "^4.0.10",
+    "mongodb": "^2.2.30",
+    "nodemon": "^1.11.0"
+  }
+}

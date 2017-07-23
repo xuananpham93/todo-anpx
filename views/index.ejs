@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <title>Todos List</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <!--<input id="newTask" type="text" placeholder="input task" style="width: 90%;"/>-->
+    <!--<button id="addNew" onclick="addNewTask()">Add</button>-->
+
+    <div class="container">
+        
+        <h2>Todos List</h2>
+
+        <form action="/add" method="post" class="form-inline">
+
+            <div class="form-group">
+                <input type="text" id="todo" name="todo" class="form-control" placeholder="input task"/>
+                <input type="hidden" id="status" name="status" value='0' class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-success">Add</button>
+        </form>
+
+        <div class="clearfix"></div>
+        <div>
+            <ul class="list-group" id="list-work">
+                <% quotes.forEach( function (item)  { %>
+                <li class="list-group-item <% if(item.status == 1){ %> list-group-item-success <% } %>" style="overflow: hidden;">
+                    <div class="col-md-9">
+                        <span><%= item.todo %></span>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="/success/<%= item._id %>">
+                            <% if(item.status == 1){ %>
+                            <i class="glyphicon glyphicon-repeat"></i>
+                            <% }else{ %>
+                            <i class="glyphicon glyphicon-ok"></i>
+                            <% } %>
+                            
+                        </a> 
+                        <!-- <a href="/edit/<%= item._id %>"><i class="glyphicon glyphicon-edit"></i></a>  -->
+                        <a href="/delete/<%= item._id %>"><i class="glyphicon glyphicon-remove"></i></a> 
+                    </div>
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+
+    <%
+    function addNewTask() {
+    var newTask = document.getElementById('newTask').value;
+    if (newTask != '') {
+    document.getElementById('newTask').value = '';
+
+    var newTodo = createItemList(newTask);
+
+    document.getElementById('list-work').appendChild(newTodo);
+}
+}
+
+function createItemList(newTask) {
+var newli = document.createElement('li');
+newli.appendChild(document.createTextNode(newTask));
+return newli;
+}
+
+
+%>
+</body>
+</html>
+
+<style type="text/css">
+    .clearfix{
+        margin-bottom: 15px;
+    }
+</style>
+
