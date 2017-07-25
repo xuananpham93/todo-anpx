@@ -11,7 +11,7 @@ MongoClient.connect('mongodb://admin:admin@ds161742.mlab.com:61742/zellwk-crud',
     if (err) return console.log(err);
     db = database.collection('quotes');
     app.listen(3000, function () {
-        console.log('listening on 3000 !')
+        console.log('listening on localhost:3000')
     })
 });
 
